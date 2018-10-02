@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- OpenKard Menu -->
+        <menuitem id="menu_op_kard__master_root" name="Kard Core"
+            sequence="10"
+            web_icon="openkard_core,static/description/icon.png" />
+
+        <menuitem id="menu_op_master_main" name="기초정보" parent="menu_op_kard__master_root"
+            sequence="10"/>
+
+        <menuitem id="menu_op_master_worker" name="연구원 정보" parent="menu_op_master_main"
+            sequence="10" action="act_open_kd_worker_view"/>
+    </data>
+</odoo>

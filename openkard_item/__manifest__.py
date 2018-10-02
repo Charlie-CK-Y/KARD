@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+{
+    'name': 'OpenKard Research Item',
+    'version': '10.0.0.0.0',
+    'license': 'LGPL-3',
+    'category': 'Education',
+    "sequence": 3,
+    'summary': 'Researche Manage Library',
+    'complexity': "easy",
+    'author': '',
+    'website': '',
+    'depends': ['openkard_core','base_action_rule'],
+    'data': [
+        'security/kd_item_security.xml',
+        'security/ir.model.access.csv',
+        'views/item_view.xml',
+        'views/item_line_view.xml',
+        'views/itemset_view.xml',
+        'views/itemset_line_view.xml',
+        'menus/item_menu.xml',
+    ],
+    'installable': True,
+    'auto_install': False,
+    'application': True,
+}

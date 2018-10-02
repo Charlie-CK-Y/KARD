@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="kd_item_line_tree_view">
+            <field name="name">kd.item.line.tree</field>
+            <field name="model">kd.item.line</field>
+            <field name="arch" type="xml">
+                <tree string="Items">
+                    <field name="item_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="kd_item_line_form_view" model="ir.ui.view">
+            <field name="name">kd.item.line.form</field>
+            <field name="model">kd.item.line</field>
+            <field name="arch" type="xml">
+                <form string="Items">
+                    <group colspan="2" col="2">
+                        <field name="item_id" domain="[('state','=','available')]" readonly="1"/>
+                        <field name="name" />
+                        <field name="state" readonly="1"/>
+                        <field name="default_value" readonly="1"/>
+                        <field name="is_mandatory" readonly="1"/>
+                        <newline/>
+                        <newline/>
+                        <field name="text_value" attrs="{'invisible': [('text_type', '=', False)]}" string="텍스트"/>
+                        <field name="text_type" attrs="{'invisible':True}"/>
+
+                        <field name="image_value" widget="image" class="oe_left oe_avatar" attrs="{'invisible': [('image_type', '=', False)]}" string="이미지"/>
+                        <field name="image_type" attrs="{'invisible':True}"/>
+
+                        <field name="date_value" placeholder="format (e.g., YYYY-MM-DD)" attrs="{'invisible': [('date_type', '=', False)]}" string="날짜"/>
+                        <field name="date_type" attrs="{'invisible':True}"/>
+
+                        <field name="time_value" attrs="{'invisible': [('time_type', '=', False)]}" string="시간"/>
+                        <field name="time_type" attrs="{'invisible':True}"/>
+
+                        <field name="datalist_id" widget="selection" domain="[('item_id', '=', item_id)]" attrs="{'invisible': [('list_type', '=', False)]}" string="목록"/>
+                        <field name="list_type" attrs="{'invisible':True}"/>
+
+                        <field name="char_value" attrs="{'invisible': [('char_type', '=', False)]}" string="문자"/>
+                        <field name="char_type" attrs="{'invisible':True}"/>
+
+                        <field name="integer_value" attrs="{'invisible': [('integer_type', '=', False)]}" string="숫자(정수)"/>
+                        <field name="integer_type" attrs="{'invisible':True}"/>
+
+                        <field disgits="(14.6)" name="float_value" attrs="{'invisible': [('float_type', '=', False)]}" string="숫자(실수)"/>
+                        <field name="float_type" attrs="{'invisible':True}"/>
+
+                        <field name="boolean_value" attrs="{'invisible': [('boolean_type', '=', False)]}" string="논리"/>
+                        <field name="boolean_type" attrs="{'invisible':True}"/>
+                        <newline/>
+                        <field name="left_right_division" readonly="1"/>
+                        <field name="maximum_value" readonly="1"/>
+                        <field name="minimum_value" readonly="1"/>
+                        <field name="unit" readonly="1"/>
+                        <field name="data_size" readonly="1"/>
+                        <field name="data_type" readonly="1"/>
+                        <!--<field name="datalist_id" readonly="1"/>-->
+                        <field name="description" readonly="1"/>
+
+                        <field name="isclose"/>
+                        <field name="create_uid" readonly="1"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

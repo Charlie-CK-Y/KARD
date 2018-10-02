@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kd_item_user,name_kd_item_user,model_kd_item,group_kd_item_user,0,0,0,0
+access_kd_item_line_user,name_kd_item_line_user,model_kd_item_line,group_kd_item_user,0,0,0,0
+access_kd_itemset_user,name_kd_itemset_user,model_kd_itemset,group_kd_item_user,0,0,0,0
+access_kd_itemset_line_user,name_kd_itemset_line_user,model_kd_itemset_line,group_kd_item_user,0,0,0,0
+access_kd_datalist_user,name_kd_datalist_user,model_kd_datalist,group_kd_item_user,0,0,0,0
+
+access_kd_item_admin,name_kd_item_admin,model_kd_item,group_kd_item_admin,1,1,1,1
+access_kd_item_line_admin,name_kd_item_line_admin,model_kd_item_line,group_kd_item_admin,1,1,1,1
+access_kd_itemset_admin,name_kd_itemset_admin,model_kd_itemset,group_kd_item_admin,1,1,1,1
+access_kd_itemset_line_admin,name_kd_itemset_line_admin,model_kd_itemset_line,group_kd_item_admin,1,1,1,1

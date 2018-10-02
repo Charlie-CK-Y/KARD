@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_kd_item_tree" model="ir.ui.view">
+            <field name="name">kd.item.tree</field>
+            <field name="model">kd.item</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Request Attribute">
+                    <field name="id"/>
+                    <field name="name" />
+                    <field name="state"/>
+                    <field name="default_value"/>
+                    <field name="is_mandatory"/>
+                    <field name="left_right_division"/>
+                    <field name="maximum_value"/>
+                    <field name="minimum_value"/>
+                    <field name="unit"/>
+                    <field name="data_size"/>
+                    <field name="data_type"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_kd_item_form" model="ir.ui.view">
+            <field name="name">kd.item.form</field>
+            <field name="model">kd.item</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Item">
+                    <sheet>
+                        <group col="4">
+                            <field name="name" />
+                            <field name="state"/>
+                            <field name="data_type"/>
+                            <field name="data_size"/>
+                            <field name="default_value"/>
+                            <field name="is_mandatory" help="필수 입력이 필요한 경우 선택 하십시오"/>
+                            <field name="left_right_division"/>
+                            <field name="unit"/>
+                            <field name="datalist_id" attrs="{'invisible': [('data_type', '!=', 'selection')]}" />
+                            <field name="maximum_value" attrs="{'invisible': [('data_type', '!=', 'integer'),('data_type', '!=', 'float')]}"/>
+                            <field name="minimum_value" attrs="{'invisible': [('data_type', '!=', 'integer'),('data_type', '!=', 'float')]}"/>/>
+                        </group>
+                        <newline/>
+                        <group col="1">
+                            <field name="description"/>
+                        </group>
+                    </sheet>
+                    <newline/>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <record id="view_kd_item_search" model="ir.ui.view">
+            <field name="name">kd.item.search</field>
+            <field name="model">kd.item</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="Item">
+                    <field name="name"/>
+                    <newline />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="act_open_kd_item_view">
+            <field name="name">Items</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kd.item</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_kd_item_search" />
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_kd_item_view_form">
+            <field name="act_window_id" ref="act_open_kd_item_view" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_kd_item_form" />
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_kd_item_view_tree">
+            <field name="act_window_id" ref="act_open_kd_item_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_kd_item_tree" />
+        </record>
+    </data>
+</odoo>

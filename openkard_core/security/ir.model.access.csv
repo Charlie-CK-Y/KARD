@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_kd_worker_user,name_kd_worker_user,model_kd_worker,group_kd_worker,1,0,0,0
+access_kd_worker_admin,name_kd_worker_admin,model_kd_worker,group_kd_admin,1,1,1,1

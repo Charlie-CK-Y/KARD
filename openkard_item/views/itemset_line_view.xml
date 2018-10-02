@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="kd_itemset_line_tree_view">
+            <field name="name">kd.itemset.line.tree</field>
+            <field name="model">kd.itemset.line</field>
+            <field name="arch" type="xml">
+                <tree string="Items">
+                    <field name="item_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="kd_itemset_line_form_view" model="ir.ui.view">
+            <field name="name">kd.itemset.line.form</field>
+            <field name="model">kd.itemset.line</field>
+            <field name="arch" type="xml">
+                <form string="Items">
+                    <group colspan="2" col="2">
+                        <field name="item_id" domain="[('state','=','available')]"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
