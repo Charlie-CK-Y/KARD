@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Research Case -->
+        <record id="view_kd_case_tree" model="ir.ui.view">
+            <field name="name">kd.case.tree</field>
+            <field name="model">kd.case</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Case" colors="red:istemplate==True;green:istemplate==False">
+                    <field name="id"/>
+                    <field name="research_id"/>
+                    <field name="name"/>
+                    <field name="state"/>
+                    <field name="istemplate" groups="openkard_research.group_kd_visit_template_admin"/>
+                    <field name="isclose"/>
+                    <field name="visitset_id"/>
+                    <field name="isVisitCreated"/>
+                    <field name="description"/>
+                    <field name="visit_ids"/>
+                    <field name="create_uid"/>
+                    <button name="open_case_view" string="View" type="object" context="{'default_case_id':id,'default_istemplate':istemplate}"/>
+                </tree>
+            </field>
+            <field name="domain_force">[('create_uid', '=','demo') ]</field>
+        </record>
+        <record id="view_kd_case_form" model="ir.ui.view">
+            <field name="name">kd.case.form</field>
+            <field name="model">kd.case</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Research Case">
+                    <!--<header>-->
+                        <!--<button name="create_vistset" string="Create Vist set" type="object" class="oe_highlight"-->
+                                <!--context="{'default_visitset_id': visitset_id}"-->
+                                <!--attrs="{'invisible': [('isVisitCreated', '!=', False),('visitset_id','=',False)]}"/>-->
+                    <!--</header>-->
+                    <sheet>
+                        <group col="4">
+                            <field name="id" readonly="1"/>
+                            <field name="research_id" domain="[('state','=','available'),('istemplate','=',istemplate)]"/>
+                            <field name="name" readonly="1"/>
+                            <field name="state"/>
+                            <field name="visitset_id" default="default_visitset"/>
+                            <field name="isVisitCreated"/>
+                            <field name="istemplate" groups="openkard_research.group_kd_visit_template_admin"/>
+                            <field name="isclose" readonly="1"/>
+                            <field name="create_uid" readonly="1"/>
+                        </group>
+                        <group col="1">
+                            <field name="description"/>
+                        </group>
+                        <newline/>
+                        <group col="1">
+                            <notebook>
+                                <page string="Visit Lists">
+                                    <tree>
+                                        <field name="visit_ids" domain="[('istemplate','=',istemplate)]" context="{'default_case_id': active_id}">
+                                            <field name="id"/>
+                                            <field name="case_id"/>
+                                            <field name="name"/>
+                                            <field name="visit_id"/>
+                                            <field name="state"/>
+                                            <field name="curr_visit_date"/>
+                                            <field name="istemplate"/>
+                                            <field name="isclose"/>
+                                            <field name="create_uid"/>
+                                        </field>
+                                    </tree>
+                                </page>
+                            </notebook>
+                        </group>
+                        <newline/>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_kd_case_search" model="ir.ui.view">
+            <field name="name">kd.case.search</field>
+            <field name="model">kd.case</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="Case">
+                    <field name="name" />
+                    <field name="case_worker_ids"/>
+                    <field name="istemplate"/>
+                    <field name="research_id"/>
+                    <newline />
+                    <filter name="search_default_case" string="default_filter" domain="[('istemplate','=',istemplate)]" />
+                </search>
+            </field>
+            <!--<field name="domain">[('istemplate','=',False)]</field>-->
+        </record>
+        <record model="ir.actions.act_window" id="act_open_kd_case_view">
+            <field name="name">Case</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kd.case</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_kd_case_search" />
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_kd_case_view_form">
+            <field name="act_window_id" ref="act_open_kd_case_view" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_kd_case_form" />
+        </record>
+        <!--<record model="ir.actions.act_window" id="act_open_kd_research_new_case_form">-->
+            <!--<field name="name">New Case Create</field>-->
+            <!--<field name="res_model">kd.case</field>-->
+            <!--<field name="view_type">form</field>-->
+            <!--<field name="view_mode">form</field>-->
+        <!--</record>-->
+        <record model="ir.actions.act_window.view" id="act_open_kd_case_view_tree">
+            <field name="act_window_id" ref="act_open_kd_case_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_kd_case_tree" />
+            <field name="context">{'default_research_id': context.get('default_research_id',False),'default_istemplate':context.get('default_istemplate',False)}</field>
+        </record>
+    </data>
+</odoo>

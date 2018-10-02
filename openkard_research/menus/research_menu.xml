@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_kd_research_root" name="Kard Research"
+            sequence="80"
+            web_icon="openedukard_research,static/description/icon.png" />
+
+        <menuitem id="menu_research_researchs" name="All Research"
+                  parent="menu_kd_research_root" sequence="20"/>
+
+        <menuitem id="menu_op_sub_research" name="Research"
+            parent="menu_research_researchs" sequence="10"
+            action="act_open_kd_research_view"/>
+
+        <menuitem id="menu_op_sub_case" name="Case"
+            parent="menu_research_researchs" sequence="20" groups="group_kd_visit_template_admin"
+            action="act_open_kd_case_view" />
+
+        <menuitem id="menu_op_sub_visit" name="Vist"
+            parent="menu_research_researchs" sequence="30" groups="group_kd_visit_template_admin"
+            action="act_open_kd_visit_view" />
+
+        <menuitem id="menu_op_sub_visitset" name="Visit Set"
+            parent="menu_research_researchs" sequence="31" groups="group_kd_visit_template_admin"
+            action="act_open_kd_visitset_view"/>
+
+        <menuitem id="menu_op_sub_visitset_user" name="User Visit Set"
+            parent="menu_research_researchs" sequence="32" groups="group_kd_visit_template_admin"
+            action="act_open_kd_visitset_user_view"/>
+
+        <menuitem id="menu_op_sub_result" name="Result"
+            parent="menu_research_researchs" sequence="40" groups="group_kd_visit_template_admin"
+            action="act_open_kd_result_view" />
+
+        <menuitem id="menu_op_sub_result_report" name="Result Report"
+                  parent="menu_research_researchs" sequence="41" groups="group_kd_visit_template_admin"
+                  action="result_report_act"/>
+
+        <menuitem id="menu_kd_research_config" name="Configuration"
+            parent="menu_kd_research_root" sequence="20" groups="group_kd_visit_template_admin"/>
+
+    </data>
+</odoo>

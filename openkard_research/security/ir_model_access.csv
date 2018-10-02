@@ -1,0 +1,40 @@
+id                  			  								,name             														,model_id:id  														,group_id:id              ,perm_read,perm_write,perm_create,perm_unlink
+# ----------------------------------------------------------------------------------------------------------------------
+# user
+# ----------------------------------------------------------------------------------------------------------------------
+access_kd_case_user 			  								,name_kd_case_user														,model_kd_case														,group_kd_support_user				,1,1,1,1
+
+access_kd_visit_user			  								,name_kd_visit_user													,model_kd_visit													,group_kd_support_user				,1,1,1,1
+access_kd_visit_line_user								,name_kd_visit_line_user								,model_kd_visit_line								,group_kd_support_user				,1,1,1,1
+access_kd_visitset_user  								,name_kd_visitset_user  								,model_kd_visitset  								,group_kd_support_user				,1,1,1,1
+access_kd_visitset_line_user					,name_kd_visitset_line_user					,model_kd_visitset_line					,group_kd_support_user				,1,1,1,1
+
+access_kd_item_line_user    					,name_kd_item_line_user    					,model_kd_item_line    					,group_kd_support_user				,1,1,1,1
+
+access_kd_research_user     					,name_kd_research_user     					,model_kd_research     					,group_kd_support_user				,1,1,1,1
+
+access_kd_result_type_user  					,name_kd_result_type_user  					,model_kd_research_type					,group_kd_support_user				,1,1,1,1
+
+access_kd_result_user       					,name_kd_result_user       					,model_kd_result       					,group_kd_support_user				,1,1,1,1
+access_kd_datalist_user     					,name_kd_datalist_user     					,model_kd_datalist          ,group_kd_support_user    ,1,0,0,0
+access_kd_item_line_datalist_user,name_kd_item_line_datalist_user,model_kd_item_line_datalist,group_kd_support_user    ,1,1,1,1
+# ----------------------------------------------------------------------------------------------------------------------
+# admin
+# ----------------------------------------------------------------------------------------------------------------------
+access_kd_case_admin 			  								,name_kd_case_admin													,model_kd_case														,group_kd_template_admin	,1,1,1,1
+
+access_kd_visit_admin			  								,name_kd_visit_admin												,model_kd_visit													,group_kd_template_admin	,1,1,1,1
+access_kd_visit_line_admin								,name_kd_visit_line_admin							,model_kd_visit_line								,group_kd_template_admin	,1,1,1,1
+access_kd_visitset_admin  								,name_kd_visitset_admin  							,model_kd_visitset  								,group_kd_template_admin	,1,1,1,1
+access_kd_visitset_line_admin					,name_kd_visitset_line_admin				,model_kd_visitset_line					,group_kd_template_admin	,1,1,1,1
+
+access_kd_item_line_admin    					,name_kd_item_line_admin    				,model_kd_item_line    					,group_kd_template_admin	,1,1,1,1
+
+access_kd_research_admin     					,name_kd_research_admin     				,model_kd_research     					,group_kd_template_admin	,1,1,1,1
+
+access_kd_result_type_admin  					,name_kd_result_type_admin  				,model_kd_research_type					,group_kd_template_admin	,1,1,1,1
+
+access_kd_result_admin       					,name_kd_result_admin       				,model_kd_result       					,group_kd_template_admin	,1,1,1,1
+
+access_kd_datalist_admin     					,name_kd_datalist_user     					,model_kd_datalist          ,group_kd_template_admin ,1,0,0,0
+access_kd_item_line_datalist_admin,name_kd_item_line_datalist_user,model_kd_item_line_datalist,group_kd_template_admin ,1,1,1,1

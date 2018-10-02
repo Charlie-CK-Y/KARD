@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="kd_item_line_tree_view">
+            <field name="name">kd.item.line.tree</field>
+            <field name="model">kd.item.line</field>
+            <field name="arch" type="xml">
+                <tree string="Items">
+                    <field name="item_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="kd_item_line_form_view_inherit" model="ir.ui.view">
+            <field name="name">kd.item.line.form</field>
+            <field name="model">kd.item.line</field>
+            <field name="inherit_id" ref="openkard_item.kd_item_line_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='item_id']" position="before">
+                    <field name="id"/>
+                    <field name="result_id" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

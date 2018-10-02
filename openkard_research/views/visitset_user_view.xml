@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Item Set -->
+        <record id="view_kd_visitset_user_tree" model="ir.ui.view">
+            <field name="name">kd.visitset.user.tree</field>
+            <field name="model">kd.visitset.user</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Visit Set">
+                    <field name="name" />
+                    <field name="state"/>
+                    <field name="visitset_id"/>
+                    <field name="user_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="view_kd_visitset_user_form" model="ir.ui.view">
+            <field name="name">kd.visitset.user.form</field>
+            <field name="model">kd.visitset.user</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="User Visit Set">
+                    <sheet>
+                        <group col="4">
+                            <field name="name" />
+                            <field name="state"/>
+                            <field name="visitset_id"/>
+                            <field name="user_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_kd_visitset_user_search" model="ir.ui.view">
+            <field name="name">kd.visitset.user.search</field>
+            <field name="model">kd.visitset.user</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="User Visit Set">
+                    <field name="name" />
+                    <field name="state"/>
+                    <field name="visitset_id" />
+                    <field name="user_id"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_open_kd_visitset_user_view">
+            <field name="name">User Visit Set</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kd.visitset.user</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_kd_visitset_user_search" />
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_kd_visitset_user_view_form">
+            <field name="act_window_id" ref="act_open_kd_visitset_user_view" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_kd_visitset_user_form" />
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_kd_visitset_user_view_tree">
+            <field name="act_window_id" ref="act_open_kd_visitset_user_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_kd_visitset_user_tree" />
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Research Type -->
+        <record id="view_kd_research_type_tree" model="ir.ui.view">
+            <field name="name">kd.research.type.tree</field>
+            <field name="model">kd.research.type</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Research Type">
+                    <field name="name" />
+                    <field name="desc" />
+                </tree>
+            </field>
+        </record>
+        <record id="view_kd_research_type_form" model="ir.ui.view">
+            <field name="name">kd.research.type.form</field>
+            <field name="model">kd.research.type</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Research Type">
+                    <sheet>
+                        <group col="4">
+                            <field name="name" />
+                            <field name="desc" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_kd_research_type_search" model="ir.ui.view">
+            <field name="name">kd.research.type.search</field>
+            <field name="model">kd.research.type</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="Library Card Type">
+                    <field name="name" />
+                    <field name="desc" />
+                    <newline />
+                    <group expand="0" string="Group By...">
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_open_kd_research_type_view">
+            <field name="name">Research Types</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kd.research.type</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_kd_research_type_search" />
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_kd_research_type_view_form">
+            <field name="act_window_id" ref="act_open_kd_research_type_view" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_kd_research_type_form" />
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_kd_research_type_view_tree">
+            <field name="act_window_id" ref="act_open_kd_research_type_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_kd_research_type_tree" />
+        </record>
+
+        <!-- Research -->
+        <record id="view_kd_research_tree" model="ir.ui.view">
+            <field name="name">kd.research.tree</field>
+            <field name="model">kd.research</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Research" colors="red:istemplate==True;green:istemplate==False">
+                    <field name="id"/>
+                    <field name="state"/>
+                    <field name="research_title" />
+                    <field name="worker_id"/>
+                    <field name="istemplate"/>
+                    <field name="case_ids"/>
+                    <!--<button name="create_new_case" string="New Case" confirm="Do you want to create a new Case ?" type="object" context="{'default_research_id':id,'default_istemplate':istemplate}"/>-->
+                    <button name="create_new_case" string="Create Case" confirm="Do you want to create a new Case ?" type="object"/>
+                    <!--<button name="openkard_research.act_open_kd_research_new_case_form" string="New Case"-->
+                            <!--confirm="Do you want to create a new Case ?"-->
+                            <!--type="action"-->
+                            <!--context="{'default_research_id':id,'default_istemplate':istemplate}"/>-->
+                </tree>
+            </field>
+        </record>
+        <record id="view_kd_research_form" model="ir.ui.view">
+            <field name="name">kd.research.form</field>
+            <field name="model">kd.research</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Research">
+                    <header>
+                        <button name="create_new_case" string="New Case" type="object" icon="fa-cogs" confirm="Do you want to create a new Case ?" />
+                    </header>
+                    <sheet>
+                        <group col="4">
+                            <field name="id" attrs="{'invisible':True}"/>
+                            <field name="research_title" />
+                            <field name="state" />
+                            <field name="worker_id"/>
+                            <field name="istemplate" groups="openkard_research.group_kd_visit_template_admin"/>
+                        </group>
+                        <newline/>
+                        <group col="1">
+                            <field name="description"/>
+                        </group>
+                        <goup col="1">
+                            <notebook>
+                                <page string="Case Lists">
+                                    <field name="case_ids" domain="[('istemplate','=',istemplate)]" widget="one2many_list">
+                                        <tree editable="bottom">
+                                            <field name="id"/>
+                                            <field name="create_uid"/>
+                                            <field name="research_id"/>
+                                            <field name="name"/>
+                                            <field name="state"/>
+                                            <field name="isclose"/>
+                                            <field name="visitset_id"/>
+                                            <field name="description"/>
+                                            <field name="visit_ids"/>
+                                            <button name="open_case_view" string="View" type="object"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </goup>
+                        <newline/>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_kd_research_search" model="ir.ui.view">
+            <field name="name">kd.research.search</field>
+            <field name="model">kd.research</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="Library Card">
+                    <field name="research_title" />
+                    <field name="worker_id"/>
+                    <newline />
+                    <group expand="0" string="Group By...">
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_open_kd_research_view">
+            <field name="name">Research</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kd.research</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_kd_research_search" />
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_research_view_form">
+            <field name="act_window_id" ref="act_open_kd_research_view" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_kd_research_form" />
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_research_view_tree">
+            <field name="act_window_id" ref="act_open_kd_research_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_kd_research_tree" />
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="kd_visitset_line_tree_view">
+            <field name="name">kd.visitset.line.tree</field>
+            <field name="model">kd.visitset.line</field>
+            <field name="arch" type="xml">
+                <tree string="Visits">
+                    <field name="visit_id"/>
+                </tree>
+            </field>
+        </record>
+        <record id="kd_visitset_line_form_view" model="ir.ui.view">
+            <field name="name">kd.visitset.line.form</field>
+            <field name="model">kd.visitset.line</field>
+            <field name="arch" type="xml">
+                <form string="Visits">
+                    <group colspan="2" col="2">
+                        <field name="visit_id" domain="[('state','=','available'),('istemplate','=',True)]"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

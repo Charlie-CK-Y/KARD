@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+
+        <record id="paperformat_kard_basic" model="report.paperformat">
+            <field name="name">European A4 low margin</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">5</field>
+            <field name="margin_bottom">5</field>
+            <field name="margin_left">5</field>
+            <field name="margin_right">5</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">0</field>
+            <field name="dpi">1500</field>
+        </record>
+
+        <report
+                id="action_report_report_result_analysis"
+                model="kd.result.analysis"
+                string="Result Report"
+                report_type="qweb-pdf"
+                name="openkard_research.report_result_analysis"
+                file="openkard_research.report_result_analysis"
+                paperformat="openkard_research.paperformat_kard_basic"
+                menu="False"
+                auto="False"
+        />
+    </data>
+</odoo>
+

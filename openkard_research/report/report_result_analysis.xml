@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <template id="report_result_analysis">
+            <t t-call="report.html_container">
+                <div class="font">
+                    <div class="page" style="font-family: Nanum Gothic,Lucida Grande, Helvetica, Verdana, Arial, sans-serif;" >
+                        <br></br>
+                        <div>
+                            Item Name : <span t-esc="res_company.phone"/>
+                            <br></br>
+                            <u>Mail : <span t-esc="res_company.email"/></u>
+                        </div>
+                        <br></br>
+                        <div class="text-center">
+                            <h3>
+                                <strong>OPEN KARD Research Support Result Analysis</strong>
+                            </h3>
+                        </div>
+                        <table>
+                            <tbody>
+                                <table style="height: 136px; width: 681px;">
+                                    <tbody>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 504px; height: 18px;" colspan="8"></td>
+                                        </tr>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 504px; height: 18px;" colspan="8"><strong>Research Result Report</strong></td>
+                                        </tr>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 504px; height: 18px;" colspan="8"></td>
+                                        </tr>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 19px; height: 18px;"></td>
+                                            <td style="width: 21px; text-align: right; height: 18px;">RESEARCH</td>
+                                            <td style="width: 164px; height: 18px;"></td>
+                                            <td style="width: 45px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 119px; height: 18px;"></td>
+                                            <td style="width: 10px; height: 18px;"></td>
+                                        </tr>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 19px; height: 18px;"></td>
+                                            <td style="width: 21px; text-align: right; height: 18px;">CASE</td>
+                                            <td style="width: 164px; height: 18px;"></td>
+                                            <td style="width: 45px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 119px; height: 18px;"></td>
+                                            <td style="width: 10px; height: 18px;"></td>
+                                        </tr>
+                                        <tr style="height: 64px;">
+                                            <td style="width: 19px; height: 64px;"></td>
+                                            <td style="width: 21px; text-align: right; height: 64px;">VISIT</td>
+                                            <td style="width: 164px; height: 64px;"></td>
+                                            <td style="width: 45px; height: 64px;">
+                                                <p style="text-align: right;">VISIT DATE</p>
+                                            </td>
+                                            <td style="width: 63px; height: 64px;"></td>
+                                            <td style="width: 63px; height: 64px;"></td>
+                                            <td style="width: 119px; height: 64px;"></td>
+                                            <td style="width: 10px; height: 64px;"></td>
+                                        </tr>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 19px; height: 18px;"></td>
+                                            <td style="width: 21px; text-align: right; height: 18px;">RESULT</td>
+                                            <td style="width: 164px; height: 18px;"></td>
+                                            <td style="width: 45px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 119px; height: 18px;"></td>
+                                            <td style="width: 10px; height: 18px;"></td>
+                                        </tr>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 19px; height: 18px;"></td>
+                                            <td style="width: 21px; text-align: right; height: 18px;">USER</td>
+                                            <td style="width: 164px; height: 18px;"></td>
+                                            <td style="width: 45px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 119px; height: 18px;"></td>
+                                            <td style="width: 10px; height: 18px;"></td>
+                                        </tr>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 19px; height: 18px;"></td>
+                                            <td style="width: 21px; height: 18px;"></td>
+                                            <td style="width: 164px; height: 18px;"></td>
+                                            <td style="width: 45px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 63px; height: 18px;"></td>
+                                            <td style="width: 119px; height: 18px;"></td>
+                                            <td style="width: 10px; height: 18px;"></td>
+                                        </tr>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 19px; height: 18px;"></td>
+                                            <td style="width: 21px; text-align: center; height: 18px;" rowspan="2">NO</td>
+                                            <td style="width: 164px; text-align: center; height: 18px;" rowspan="2">NAME</td>
+                                            <td style="width: 45px; text-align: center; height: 18px;" rowspan="2">TYPE</td>
+                                            <td style="width: 126px; text-align: center; height: 18px;" colspan="2">VALUE</td>
+                                            <td style="width: 119px; text-align: center; height: 18px;" rowspan="2">DESC</td>
+                                            <td style="width: 10px; text-align: center; height: 18px;"></td>
+                                        </tr>
+                                        <tr style="height: 18px;">
+                                            <td style="width: 63px; text-align: center; height: 18px;"></td>
+                                            <td style="width: 63px; text-align: center; height: 18px;">LEFT</td>
+                                            <td style="width: 63px; text-align: center; height: 18px;">RIGHT</td>
+                                            <td style="width: 63px; text-align: center; height: 18px;"></td>
+                                        </tr>
+                                        <tr style="height: 3px;">
+                                            <td style="width: 63px; height: 6px;"></td>
+                                            <td style="width: 63px; height: 6px;"></td>
+                                            <td style="width: 63px; height: 6px;"></td>
+                                            <td style="width: 63px; height: 6px;"></td>
+                                            <td style="width: 63px; height: 6px;"></td>
+                                            <td style="width: 63px; height: 6px;"></td>
+                                            <td style="width: 63px; height: 6px;"></td>
+                                            <td style="width: 63px; height: 6px;"></td>
+                                        </tr>
+                                        <t t-foreach="get_data" t-as="item">
+                                            <tr style="height: 45px;">
+                                                <td style="width: 63px; height: 18px;"></td>
+                                                <td style="width: 63px; height: 18px;"><span t-raw="'%s' % item['item_no'] if item['item_name'] else ''"/></td>
+                                                <td style="width: 63px; height: 18px;"><span t-raw="'%s' % item['item_name'] if item['item_name'] else ''"/></td>
+                                                <td style="width: 63px; height: 18px;"><span t-raw="'%s' % item['item_type'] if item['item_name'] else ''"/></td>
+                                                <td style="width: 63px; height: 18px;"><span t-raw="'%s' % item['item_value'] if item['item_name'] else ''"/></td>
+                                                <td style="width: 63px; height: 18px;"><span t-raw="'%s' % item['item_value'] if item['item_name'] else ''"/></td>
+                                                <td style="width: 63px; height: 18px;"><span t-raw="'%s' % item['item_name'] if item['item_name'] else ''"/></td>
+                                                <td style="width: 63px; height: 18px;"></td>
+                                            </tr>
+                                        </t>
+                                    </tbody>
+                                </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

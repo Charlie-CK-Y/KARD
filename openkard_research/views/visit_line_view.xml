@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="kd_visit_line_tree_view">
+            <field name="name">kd.visit.line.tree</field>
+            <field name="model">kd.visit.line</field>
+            <field name="arch" type="xml">
+                <tree string="Visit">
+                    <field name="visit_id" />
+                </tree>
+            </field>
+        </record>
+        <record id="kd_visit_line_form_view" model="ir.ui.view">
+            <field name="name">kd.visit.line.form</field>
+            <field name="model">kd.visit.line</field>
+            <field name="arch" type="xml">
+                <form string="Items">
+                    <group colspan="2" col="2">
+                        <field name="visit_id" domain="[('state','=','available'),('istemplate','=',True)]"/>
+                        <field name="name" />
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

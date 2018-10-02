@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Case Visit -->
+        <record id="view_kd_visit_tree" model="ir.ui.view">
+            <field name="name">kd.visit.tree</field>
+            <field name="model">kd.visit</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree string="Visit" colors="red:istemplate==True;green:istemplate==False">
+                    <field name="id"/>
+                    <field name="case_id"/>
+                    <field name="name"/>
+                    <field name="state" />
+                    <field name="istemplate"/>
+                    <field name="isclose"/>
+                    <field name="create_uid"/>
+                    <!--<button name="update_visit_result" string="Edit" type="object" context="{'default_case_id':id,'default_istemplate':istemplate}"/>-->
+                    <button name="open_visit_result" string="View" type="object" context="{'default_case_id':id,'default_istemplate':istemplate}"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_kd_visit_form" model="ir.ui.view">
+            <field name="name">kd.visit.form</field>
+            <field name="model">kd.visit</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form string="Visit">
+                    <sheet>
+                        <group col="4">
+                            <field name="case_id" domain="[('create_uid', '=', create_uid),('state','=','available'),('istemplate','=',istemplate)]"/>
+                            <field name="name" readonly="1"/>
+                            <field name="id" string="Visit ID"/>
+                            <field name="state" />
+                            <!--<field name="curr_visit_date" />-->
+                            <!--<field name="is_template_readonly" readonly="1" invisible="1"/>-->
+                            <field name="istemplate"/>
+                            <field name="isclose" readonly="1"/>
+                            <field name="create_uid" readonly="1"/>
+                        </group>
+                        <group col="1">
+                            <notebook>
+                                <page string="Result Lists">
+                                    <!--<field name="result_lines" attrs="{'readonly': [('state', 'in', ('done','cancel'))]}" context="{'default_visit_id': active_id}">-->
+                                        <!--<tree create="0">-->
+                                    <field name="result_lines" context="{'default_visit_id': active_id}">
+                                        <tree>
+                                            <field name="id"/>
+                                            <field name="visit_id" domain="[('state','=','available'),('istemplate','=',istemplate)]"/>
+                                            <field name="state" />
+                                            <field name="itemset_id"/>
+                                            <field name="isautocreated"/>
+                                            <field name="istemplate" groups="openkard_research.group_kd_visit_template_admin"/>
+                                            <field name="isclose" readonly="1"/>
+                                            <field name="create_uid" readonly="1"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                        <newline/>
+                        <div class="oe_chatter">
+                            <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                            <field name="message_ids" widget="mail_thread"/>
+                        </div>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_kd_visit_search" model="ir.ui.view">
+            <field name="name">kd.visit.search</field>
+            <field name="model">kd.visit</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <search string="Visit">
+                    <field name="name" />
+                    <field name="state"/>
+                    <field name="case_id"/>
+                    <newline />
+                    <group expand="0" string="Group By...">
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_open_kd_visit_view">
+            <field name="name">Visit</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">kd.visit</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_kd_visit_search" />
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_kd_visit_view_form">
+            <field name="act_window_id" ref="act_open_kd_visit_view" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_kd_visit_form" />
+            <field name="context">{'default_visit_id': active_id}</field>
+        </record>
+        <record model="ir.actions.act_window.view" id="act_open_kd_visit_view_tree">
+            <field name="act_window_id" ref="act_open_kd_visit_view" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_kd_visit_tree" />
+        </record>
+    </data>
+</odoo>
